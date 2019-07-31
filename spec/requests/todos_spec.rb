@@ -9,7 +9,7 @@ RSpec.describe 'Todos Api', type: :request do
 
     it 'returns todos' do
       expect(json).not_to be_empty
-      expect(json).size eq(10)
+      expect(json.size).to eq(10)
     end
 
     it 'return status of 200' do
@@ -39,7 +39,7 @@ RSpec.describe 'Todos Api', type: :request do
       end
 
       it 'returns a not found message' do
-        expect(response.body).to match(/Coudn't find Todo/)
+        expect(response.body).to match(/Couldn't find Todo/)
       end
     end
   end
@@ -61,7 +61,7 @@ RSpec.describe 'Todos Api', type: :request do
 
     context 'when request is invalid' do
       let(:invalid_attributes) { { title: 'Apple' } }
-      before { post '/todos', params: invalid_attibutes }
+      before { post '/todos', params: invalid_attributes }
 
       it 'returns status 422' do
         expect(response).to have_http_status(422)
@@ -81,7 +81,7 @@ RSpec.describe 'Todos Api', type: :request do
 
       it 'updates the record' do
         # expect(json['title']).to eq('Elixir')
-        expect(json.body).to be_empty
+        expect(response.body).to be_empty
       end
 
       it 'returns a status off 204' do
