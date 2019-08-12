@@ -7,6 +7,7 @@ gem 'rails', '~> 5.2.3'
 gem 'sqlite3'
 gem 'puma', '~> 3.11'
 # gem 'jbuilder', '~> 2.5'
+gem 'jwt'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootsnap', '>= 1.1.0', require: false
